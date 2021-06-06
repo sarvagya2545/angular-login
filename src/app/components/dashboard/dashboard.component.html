@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<div class="center dashboard">
+    <div class="dashboard__img">
+        <img src="/assets/user.svg" alt="User" class="pic">
+    </div>
+    <div class="dashboard__info">
+        <ul class="dashboard-items">
+            <li>Name: {{auth.getUserData().name}}</li>
+            <li>Email: {{auth.getUserData().email}}</li>
+        </ul>
+    </div>
+</div>

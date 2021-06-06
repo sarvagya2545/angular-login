@@ -1,0 +1,14 @@
+.dashboard {
+    &__info {
+        flex-grow: 1;    
+    }    
+
+    &-items {
+        list-style-type: none;
+    }
+
+    &__img img {
+        width: 10rem;
+        height: 10rem;
+    }
+}
