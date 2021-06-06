@@ -8,9 +8,16 @@ import { AuthService } from './services/AuthService/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(public auth: AuthService, private router: Router) {}
+  constructor(public auth: AuthService, private router: Router) {
+    this.auth.getCurrentUserFromToken().subscribe((data: any) => {
+      const { name, email } = data;
+      this.auth.setUserData(name, email);
+      this.router.navigateByUrl('/dashboard');
+    }, err => console.log(err));
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   logout() {
     this.auth.logoutUser();
