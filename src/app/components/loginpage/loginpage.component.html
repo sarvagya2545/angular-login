@@ -1,0 +1,20 @@
+<div class="center">
+    <h3>Login</h3>
+    <form class="form">
+        <div class="form-group">
+            <input type="email" name="email" placeholder="email" class="input" [(ngModel)]="user.email" #email="ngModel"/>
+            <label for="email" class="label">Enter email address</label>
+        </div>
+        <div class="form-group">
+            <input [type]="user.passwordVisible ? 'text' : 'password'" name="password" placeholder="pwd" class="input" [(ngModel)]="user.password" #password="ngModel"/>
+            <label for="password" class="label">Enter your password here</label>
+        </div>
+        <div class="form-group-checkbox">
+            <input type="checkbox" name="passwordVisible" [(ngModel)]="user.passwordVisible"/>
+            <label for="passwordVisible" class="checkbox-label">Show password</label>
+        </div>
+        <button class="btn btn-submit">
+            Login
+        </button>
+    </form>
+</div>

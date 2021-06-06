@@ -1,0 +1,129 @@
+// Login and Signup forms
+@import './variables.scss';
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    font-size: inherit;
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+        position: relative;
+        width: 30rem;
+        
+        &:last-of-type {
+            margin-bottom: 20px;
+        }
+    }
+
+    // removes autofill color
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus, 
+    input:-webkit-autofill:active  {
+        transition-delay: 5000s;
+    }
+    
+    .input {
+        font-family: inherit;
+        font-size: 1.2rem;
+        border: none;
+        border-bottom: 2px solid black;
+        padding: .7rem;
+        outline: none;
+        z-index: 1;
+        background-color: transparent;
+        
+        &.ng-invalid:not(.ng-untouched) {
+            border-color: red !important;
+        }
+
+        &:focus {
+            border-bottom: 2px solid $col-primary;
+        }
+        
+        &:focus + label,
+        &:not(:placeholder-shown) + label {
+            color: $col-primary;
+            transform: translate(-1rem, -1.75rem) scale(0.75);
+        }
+
+        & + label {
+            font-size: 1.2rem;
+            position: absolute;
+            color: $col-form-placeholders;
+            bottom: .8rem;
+            left: 1rem;
+            transition: transform .2s ease;
+            // change transform origin for having them float to the same position
+            transform-origin: 0% 0%;
+        }
+
+        &.ng-invalid:not(.ng-untouched) + label {
+            color: red;
+        }
+
+        &::placeholder {
+            opacity: 0;
+        }
+    }
+
+    .form-group-checkbox {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 1rem 0;
+
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            background-color: $col-primary;
+        }
+        
+        .checkbox-label {
+            display: inline-block;
+            width: fit-content;
+            font-size: 1rem;
+            margin-left: 1.2rem;
+        }
+    }
+
+    .error {
+        font-size: 1rem;
+        padding: 0;
+        margin-top: -10px;
+        color: red;
+    }
+}
+
+.btn {
+    border: none;
+    font-family: inherit; 
+    outline: none;
+}
+
+.btn-submit {
+    font-family: inherit;
+    font-size: 1rem;
+    display: inline-block;
+    width: fit-content;
+    padding: .7rem 1.4rem;
+    text-transform: uppercase;
+    margin-top: 10px;
+    background-color: $col-primary;
+    color: #fff;
+    transition: all 0.2s ease;
+    border-radius: 10px;
+}
+
+
+.btn-submit:hover,
+.btn-submit:focus {
+    cursor: pointer;
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
+}
