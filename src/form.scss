@@ -111,13 +111,19 @@
     font-size: 1rem;
     display: inline-block;
     width: fit-content;
-    padding: .7rem 1.4rem;
+    padding: .6rem 1.4rem;
     text-transform: uppercase;
     margin-top: 10px;
     background-color: $col-primary;
     color: #fff;
     transition: all 0.2s ease;
     border-radius: 10px;
+
+    &.inverse {
+        background-color: $col-w;
+        color: $col-primary;
+        border: 3px solid $col-primary;
+    }
 }
 
 
