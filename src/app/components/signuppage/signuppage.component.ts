@@ -39,9 +39,9 @@ export class SignuppageComponent implements OnInit {
 
   onSubmit() {
     this.auth.signupUser(this.user.name, this.user.email, this.user.password, this.user.confirmPassword)
-      .subscribe((data) => {
-        console.log(data);
-
+      .subscribe((data: any) => {
+        // set the user data in state
+        this.auth.setUserData(data.user.name, data.user.email);
         this.error = {
           isError: false,
           msg: ''

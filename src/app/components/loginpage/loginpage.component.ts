@@ -33,8 +33,10 @@ export class LoginpageComponent implements OnInit {
 
   onSubmit(): void {
     this.auth.loginUser(this.user.email, this.user.password)
-      .subscribe(data => {
-        console.log(data)
+      .subscribe((data: any) => {
+        // set the user data in state
+        this.auth.setUserData(data.user.name, data.user.email);
+
         this.error = {
           isError: false,
           msg: ''
