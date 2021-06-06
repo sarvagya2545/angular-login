@@ -3,7 +3,7 @@
     Welcome!
   </div>
   <ul>
-    <ng-template [ngIf]="isAuthenticated" [ngIfElse]="loggedOut">
+    <ng-template [ngIf]="auth.loggedIn()" [ngIfElse]="loggedOut">
       <li (click)="logout()">
         Logout
       </li>

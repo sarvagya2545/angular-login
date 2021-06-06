@@ -8,34 +8,12 @@ import { AuthService } from './services/AuthService/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  isAuthenticated: boolean = false;
-  userName: string | null = null;
-  constructor(private auth: AuthService, private router: Router) {
-    // this.auth.getCurrentUserFromToken().subscribe((data: any) => {
-    //   const { name, email } = data;
-    //   this.auth.setUserData(name, email);
-    //   this.isAuthenticated = this.auth.loggedIn();
-    //   this.userName = this.auth.getUserData().name;
-    //   this.router.navigateByUrl('/dashboard');
-    // }, err => console.log(err));
+  constructor(public auth: AuthService, private router: Router) {}
 
-    // this.isAuthenticated = this.auth.loggedIn();
-    // this.userName = this.auth.getUserData().name;
-    // console.log(this.userName, this.isAuthenticated);
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logout() {
-    // this.auth.logoutUser().subscribe(data => {
-    //   console.log(data);
-    //   this.router.navigateByUrl('/');
-    // }, err => console.log(err));
-    // this.auth.clearUserData();
-  }
-
-  ngOnChanges() {
-
+    this.auth.logoutUser();
+    this.router.navigateByUrl('/');
   }
 }
