@@ -10,11 +10,11 @@ export class AuthService {
   rootUrl :string = 'http://localhost:5000';
 
   signupUser(name: string, email: string, password: string, confirmPassword: string) {
-    return this.http.post(`${this.rootUrl}/auth/signup`, { name, email, password, confirmPassword });
+    return this.http.post(`${this.rootUrl}/auth/signup`, { name, email, password, confirmPassword }, { withCredentials: true });
   }
   
   loginUser(email: string, password: string) {
-    return this.http.post(`${this.rootUrl}/auth/login`, { email, password });
+    return this.http.post(`${this.rootUrl}/auth/login`, { email, password }, { withCredentials: true });
   }
 
   // getCurrentUserFromToken() {
