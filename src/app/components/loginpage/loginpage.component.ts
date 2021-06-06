@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/AuthService/auth.service';
 
 interface LoginObject {
   email: string;
@@ -13,7 +14,7 @@ interface LoginObject {
 })
 export class LoginpageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   user: LoginObject = {
     email: '',
@@ -24,4 +25,8 @@ export class LoginpageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+    this.auth.loginUser(this.user.email, this.user.password)
+      .subscribe(data => console.log(data));
+  }
 }

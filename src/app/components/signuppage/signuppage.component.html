@@ -2,6 +2,13 @@
     <h3>Signup</h3>
     <form class="form" (submit)="onSubmit()">
         <div class="form-group">
+            <input type="text" required name="name" placeholder="name" class="input" [(ngModel)]="user.name" #name="ngModel">
+            <label for="name" class="label">Enter your name</label>
+        </div>
+        <div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">
+            <div *ngIf="name.errors?.required">Name field cannot be blank</div>
+        </div>
+        <div class="form-group">
             <input type="email" required name="email" placeholder="email" class="input" [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
             <label for="email" class="label">Enter email address</label>
         </div>
@@ -28,7 +35,10 @@
             <input type="checkbox" name="passwordVisible" [(ngModel)]="user.passwordVisible"/>
             <label for="passwordVisible" class="checkbox-label">Show password</label>
         </div>
-        <button class="btn btn-submit">
+        <button 
+            class="btn btn-submit" 
+            [disabled]="name.errors || email.errors || password.errors || confirmPassword.value !== password.value"
+        >
             Sign up
         </button>
     </form>

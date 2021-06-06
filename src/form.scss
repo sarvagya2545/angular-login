@@ -127,3 +127,10 @@
     transform: translateY(-1px);
     box-shadow: rgba(0, 0, 0, 0.5) 0 5px 10px;
 }
+
+.btn-submit:disabled {
+    background-color: #444;
+    transform: none;
+    box-shadow: none;
+    cursor: not-allowed;
+}

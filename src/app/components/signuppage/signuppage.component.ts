@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/AuthService/auth.service';
 
 interface SignUpObject {
+  name: string;
   email: string;
   password: string;
   confirmPassword: string;
@@ -14,10 +16,11 @@ interface SignUpObject {
 })
 export class SignuppageComponent implements OnInit {
 
-  constructor() {
+  constructor(private auth: AuthService) {
   }
 
   user: SignUpObject = {
+    name: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -29,7 +32,10 @@ export class SignuppageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.user);
+    this.auth.signupUser(this.user.name, this.user.email, this.user.password, this.user.confirmPassword)
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 
   log(x: unknown) { console.log(x); }
