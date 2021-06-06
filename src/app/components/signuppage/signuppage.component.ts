@@ -27,6 +27,11 @@ export class SignuppageComponent implements OnInit {
     passwordVisible: false
   }
 
+  error = {
+    isError: false,
+    msg: ''
+  }
+
   ngOnInit(): void {
     
   }
@@ -35,6 +40,17 @@ export class SignuppageComponent implements OnInit {
     this.auth.signupUser(this.user.name, this.user.email, this.user.password, this.user.confirmPassword)
       .subscribe((data) => {
         console.log(data);
+
+        this.error = {
+          isError: false,
+          msg: ''
+        }
+
+      }, err => {
+        this.error = {
+          isError: true,
+          msg: err.error.error
+        }
       });
   }
 

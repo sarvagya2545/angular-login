@@ -17,7 +17,7 @@ export class AuthService {
     return this.http.post(`${this.rootUrl}/auth/login`, { email, password }, { withCredentials: true });
   }
 
-  // getCurrentUserFromToken() {
-    
-  // }
+  getCurrentUserFromToken(token: string) {
+    return this.http.get(`${this.rootUrl}/auth/user`, { withCredentials: true });
+  }
 }

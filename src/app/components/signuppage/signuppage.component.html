@@ -1,6 +1,9 @@
 <div class="center">
     <h3>Signup</h3>
     <form class="form" (submit)="onSubmit()">
+        <div class="center mx-auto">
+            <div class="error" *ngIf="error.isError">{{ error.msg }}</div>
+        </div>
         <div class="form-group">
             <input type="text" required name="name" placeholder="name" class="input" [(ngModel)]="user.name" #name="ngModel">
             <label for="name" class="label">Enter your name</label>
