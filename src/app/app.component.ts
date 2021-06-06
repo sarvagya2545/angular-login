@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.auth.logoutUser();
+    this.auth.logoutUser().subscribe(data => console.log(data), err => console.log(err));
     this.router.navigateByUrl('/');
   }
 }
