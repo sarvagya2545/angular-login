@@ -39,6 +39,8 @@ export class LoginpageComponent implements OnInit {
           isError: false,
           msg: ''
         }
+
+        this.router.navigateByUrl('/dashboard');
       }, err => {
         this.error.msg = err.error.error;
         this.error.isError = true;

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/AuthService/auth.service';
 
 interface SignUpObject {
@@ -16,7 +17,7 @@ interface SignUpObject {
 })
 export class SignuppageComponent implements OnInit {
 
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private router: Router) {
   }
 
   user: SignUpObject = {
@@ -45,7 +46,7 @@ export class SignuppageComponent implements OnInit {
           isError: false,
           msg: ''
         }
-
+        this.router.navigateByUrl('/dashboard');
       }, err => {
         this.error = {
           isError: true,
